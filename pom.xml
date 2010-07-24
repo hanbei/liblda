@@ -1,0 +1,172 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.fhg.iais.kd.tm</groupId>
+	<artifactId>liblda</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.2-SNAPSHOT</version>
+    <modules>
+        <module>liblda-api</module>
+        <module>liblda-impl</module>
+        <module>liblda-io</module>
+    </modules>
+    <name>LDA</name>
+
+	<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <source.level>1.6</source.level>
+    </properties>
+
+	<ciManagement>
+        <system>Hudson</system>
+        <url>http://kd-build:8080/hudson/view/LibLDA/job/libLDA/</url>
+    </ciManagement>
+    <developers>
+        <developer>
+            <id>fschulz</id>
+            <name>Florian Schulz</name>
+            <email>florian.schulz@iais.fraunhofer.de</email>
+            <organization>Fraunhofer IAIS</organization>
+            <organizationUrl>http://www.iais.fraunhofer.de/4044.html</organizationUrl>
+            <timezone>GMT+1</timezone>
+        </developer>
+    </developers>
+   <scm>
+        <connection>
+            scm:svn:https://svn-int.iais.fraunhofer.de/repos/tmusers/open/fschulz/liblda/trunk/
+        </connection>
+        <developerConnection>
+            scm:svn:https://svn-int.iais.fraunhofer.de/repos/tmusers/open/fschulz/liblda/trunk
+        </developerConnection>
+        <url>https://svn-int.iais.fraunhofer.de/repos/tmusers/open/fschulz/liblda/trunk</url>
+    </scm>   
+
+	<organization>
+        <name>Fraunhofer IAIS (Textmining)</name>
+        <url>http://www.iais.fraunhofer.de/4862.html</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>FHG License</name>
+            <url>??</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly non-OSS license</comments>
+        </license>
+    </licenses>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${source.level}</source>
+                    <target>${source.level}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>distribution.xml</descriptor>
+                    </descriptors>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <configuration>
+                    <outputDirectory>${basedir}/../lib/</outputDirectory>
+                    <stripVersion>true</stripVersion>
+                    <overwriteSnapshots>true</overwriteSnapshots>
+                    <overWriteReleases>true</overWriteReleases>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.gnu</groupId>
+			<artifactId>trove</artifactId>
+			<version>2.0.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>colt</groupId>
+			<artifactId>colt</artifactId>
+			<version>1.2.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math</artifactId>
+			<version>2.0</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Internal Snapshots</name>
+			<url>
+				http://theseuskd.iais.fraunhofer.de:8080/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>releases</id>
+			<name>Internal Releases</name>
+			<url>
+				http://theseuskd.iais.fraunhofer.de:8080/nexus/content/repositories/releases/</url>
+		</repository>
+		<site>
+            <id>stagingSite</id>
+            <name>LibCRF - Site</name>
+            <url>scp://kd-build.iais.fraunhofer.de/home/fschulz/site/liblda/</url>
+        </site>
+	</distributionManagement>
+	<reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <configuration>
+                    <sourceEncoding>utf-8</sourceEncoding>
+                    <minimumTokens>100</minimumTokens>
+                    <targetJdk>${source.level}</targetJdk>
+                    <rulesets>
+                        <ruleset>${basedir}/../rules.xml</ruleset>
+                    </rulesets>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </reporting>
+    <profiles>
+        <profile>
+            <id>hudsonDeploy</id>
+            <distributionManagement>
+                <site>
+                    <id>website</id>
+                    <name>LibCRF - Site</name>
+                    <url>file:/home/fschulz/site/liblda</url>
+                </site>
+            </distributionManagement>
+        </profile>
+    </profiles>
+</project>

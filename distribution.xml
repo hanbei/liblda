@@ -1,0 +1,28 @@
+<assembly>
+	<id>distribution</id>
+	<formats>
+		<format>dir</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<moduleSets>
+		<moduleSet>
+			<binaries>
+				<outputDirectory>/release</outputDirectory>
+				<outputFileNameMapping>${artifact.artifactId}.${artifact.extension}
+				</outputFileNameMapping>
+				<unpack>false</unpack>
+				<dependencySets>
+					<dependencySet>
+						<outputDirectory>/release/lib</outputDirectory>
+						<outputFileNameMapping>${artifact.artifactId}.${artifact.extension}
+						</outputFileNameMapping>
+					</dependencySet>
+				</dependencySets>
+			</binaries>
+	<!--
+		<sources> <fileSets> <fileSet> </fileSet> </fileSets>
+		<includeModuleDirectory>true</includeModuleDirectory>
+		<outputDirectory>/sources</outputDirectory> </sources>
+	--></moduleSet>
+	</moduleSets>
+</assembly>

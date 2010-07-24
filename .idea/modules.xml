@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/liblda.iml" filepath="$PROJECT_DIR$/liblda.iml" />
+      <module fileurl="file://$PROJECT_DIR$/liblda-api/liblda-api.iml" filepath="$PROJECT_DIR$/liblda-api/liblda-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/liblda-impl/liblda-impl.iml" filepath="$PROJECT_DIR$/liblda-impl/liblda-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/liblda-io/liblda-io.iml" filepath="$PROJECT_DIR$/liblda-io/liblda-io.iml" />
+    </modules>
+  </component>
+</project>
+
