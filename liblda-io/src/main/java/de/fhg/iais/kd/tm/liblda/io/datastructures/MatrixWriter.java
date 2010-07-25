@@ -20,6 +20,11 @@ public class MatrixWriter implements IWriter<Matrix> {
 
     public void write(Matrix matrix, java.io.Writer writer) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(writer);
+        bufferedWriter.write(matrix.getClass().getName());
+        bufferedWriter.write(" " + matrix.getNumberOfRows());
+        bufferedWriter.write(" " + matrix.getNumberOfColumns());
+        bufferedWriter.newLine();
+
         for (int row = 0; row < matrix.getNumberOfRows(); row++) {
             for (int column = 0; column < matrix.getNumberOfColumns(); column++) {
                 double value = matrix.get(row, column);

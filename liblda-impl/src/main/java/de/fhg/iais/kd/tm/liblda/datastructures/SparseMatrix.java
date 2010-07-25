@@ -66,4 +66,23 @@ public class SparseMatrix implements Matrix {
 		}
 		return buffer.toString();
 	}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Matrix)) {
+            return false;
+        } else {
+            Matrix other = (Matrix) o;
+            for (int row = 0; row < getNumberOfRows(); row++) {
+                for (int column = 0; column < getNumberOfRows(); column++) {
+                    if (other.get(row, column) != this.get(row, column)) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    
 }
