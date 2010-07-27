@@ -6,6 +6,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
+import de.fhg.iais.kd.tm.liblda.LDA;
 import de.fhg.iais.kd.tm.liblda.LDAImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -38,7 +39,7 @@ public class LDAReadWriteTest extends DataReader {
 
         ByteArrayInputStream bytesIn = new ByteArrayInputStream(bytesOut.toByteArray());
         LDAReader reader = new LDAReader();
-        LDAImpl ldaModel = (LDAImpl) reader.readLDAModel(bytesIn);
+        LDA ldaModel = reader.readLDAModel(bytesIn);
 
         assertEquals(lda.getNumberOfTopics(), ldaModel.getNumberOfTopics());
         assertArrayEquals(lda.getAlpha(), ldaModel.getAlpha(), 0.000000000000001);

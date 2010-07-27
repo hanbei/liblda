@@ -6,6 +6,7 @@ import java.util.List;
 import de.fhg.iais.kd.tm.liblda.LDAParameter;
 import de.fhg.iais.kd.tm.liblda.RandomEngine;
 import de.fhg.iais.kd.tm.liblda.datastructures.DocumentData;
+import de.fhg.iais.kd.tm.liblda.datastructures.Matrix;
 
 /**
  * An InferenceEngine trains topics for a training set and inferences topics for new documents.
@@ -25,7 +26,7 @@ public interface InferenceEngine extends Serializable {
     /**
      * Get the random engine.
      *
-     * @return
+     * @return The RandomEngine used to sample for this InferenceEngine. 
      */
     public RandomEngine getRandomEngine();
 
@@ -58,7 +59,11 @@ public interface InferenceEngine extends Serializable {
      */
     public void setNumberOfFeatures(int size);
 
-    /** Get the number of iterations to perform the training steps. */
+    /**
+     * Get the number of iterations to perform the training steps.
+     *
+     * @return The number of iterations the gibbs sampling should run. 
+     */
     public int getNumberOfIterations();
 
     /**
@@ -88,4 +93,11 @@ public interface InferenceEngine extends Serializable {
      */
     public double[] getFeatureDistribution(int topicId);
 
+    Matrix getTopicTypeCount();
+
+    void setTopicTypeCount(Matrix topicTypeCount);
+
+    Matrix getTopicDocumentCount();
+
+    void setTopicDocumentCount(Matrix topicDocumentCount);
 }

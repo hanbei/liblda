@@ -61,15 +61,15 @@ public class RandomEngine extends Random implements Serializable {
 		double magnitude = 0;
 		double[] partition = new double[alpha.length];
 
-		for (int i = 0; i < alpha.length; i++) {
-			magnitude += alpha[i];
-		}
+        for (double anAlpha : alpha) {
+            magnitude += anAlpha;
+        }
 
 		for (int i = 0; i < alpha.length; i++) {
 			partition[i] = alpha[i] / magnitude;
 		}
 
-		double distribution[] = new double[partition.length];
+		double[] distribution = new double[partition.length];
 
 		// For each dimension, draw a sample from Gamma(mp_i, 1)
 		double sum = 0;

@@ -63,25 +63,25 @@ public class MatrixReaderTest {
     @Test(expected = IOException.class)
     public void testTooFewColumns() throws Exception {
         StringReader reader = new StringReader(tooFewColumnsInputString);
-        Matrix matrix = matrixReader.read(reader);
+        matrixReader.read(reader);
     }
 
     @Test(expected = IOException.class)
     public void testTooManyColumns() throws Exception {
         StringReader reader = new StringReader(tooManyColumnsInputString);
-        Matrix matrix = matrixReader.read(reader);
+        matrixReader.read(reader);
     }
 
     @Test(expected = IOException.class)
     public void testTooFewRows() throws Exception {
         StringReader reader = new StringReader(tooFewRowsInputString);
-        Matrix matrix = matrixReader.read(reader);
+        matrixReader.read(reader);
     }
 
     @Test(expected = IOException.class)
     public void testTooManyRows() throws Exception {
         StringReader reader = new StringReader(tooManyRowsInputString);
-        Matrix matrix = matrixReader.read(reader);
+        matrixReader.read(reader);
     }
 
     @Test

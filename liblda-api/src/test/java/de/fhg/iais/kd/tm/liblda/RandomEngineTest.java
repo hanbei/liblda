@@ -14,7 +14,7 @@ public class RandomEngineTest {
     private RandomEngine random;
     private double[] alphas;
     private double[] expectedDistribution;
-    private int[] exptectedInts;
+    private int[] expectedInts;
 
     @Before
     public void setUp() {
@@ -25,13 +25,13 @@ public class RandomEngineTest {
         expectedDistribution = new double[]{0.09588444935979229, 0.07646295602537441, 0.03219472089956069,
                 0.009097649133636657, 0.010964672153721449, 0.486776459019379, 0.12796816387993246,
                 0.016576160367324885, 0.09806976321152473, 0.04600500594975344};
-        exptectedInts = new int[]{6, 5, 5, 5, 8, 5, 1, 5, 1, 5};
+        expectedInts = new int[]{6, 5, 5, 5, 8, 5, 1, 5, 1, 5};
     }
 
     @Test
     public void testNextDiscrete() {
         for (int i = 0; i < 10; i++) {
-            assertEquals("At " + i, exptectedInts[i], random.nextDiscrete(expectedDistribution, 1.0));
+            assertEquals("At " + i, expectedInts[i], random.nextDiscrete(expectedDistribution, 1.0));
             random.nextDiscrete(expectedDistribution, 1.0);
         }
     }

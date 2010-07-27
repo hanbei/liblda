@@ -7,7 +7,7 @@ import de.fhg.iais.kd.tm.liblda.DataReader;
 
 public class AbstractGibbsSamplerTestFixture extends DataReader {
 
-    protected static final List<String> TOPIC0_TOPWORDS = Arrays.asList(new String[]{"water", "co2", "hot", "use",
+    protected static final List<String> TOPIC0_TOPWORDS = Arrays.asList("water", "co2", "hot", "use",
             "kg", "save", "year", "heater", "products", "reduce", "heating", "savings", "shower", "appliances", "make",
             "1", "lot", "electric", "tank", "install", "store", "uses", "10", "little", "it's", "instead", "turn",
             "need", "designed", "insulate", "old", "clothes", "flow", "easy", "add", "sure", "average", "person",
@@ -61,9 +61,9 @@ public class AbstractGibbsSamplerTestFixture extends DataReader {
             "opened", "pre-teen", "fantastic", "haven't", "collects", "worrying", "hoping", "deluge", "tetrapaks",
             "cartons", "co-op", "noticeable", "stealing", "skateboards", "busy", "punctual", "sorted", "appeared",
             "censorship", "stern", "supermarket", "forgiven", "compound", "21", "impossible", "roughly", "tub)",
-            "tubs?", "apartment", "owns", "pans"});
+            "tubs?", "apartment", "owns", "pans");
 
-    protected static final List<String> TOPIC1_TOPWORDS = Arrays.asList(new String[]{"emissions", "gas", "fuel",
+    protected static final List<String> TOPIC1_TOPWORDS = Arrays.asList("emissions", "gas", "fuel",
             "greenhouse", "vehicle", "total", "car", "waste", "personal", "electricity", "number", "produce", "travel",
             "example", "5", "different", "household", "change", "2", "does", "produces", "type", "work", "recycling",
             "trips", "trip", "calculator", "gases", "affect", "produced", "distance", "gasoline", "3", "vehicles",
@@ -123,8 +123,8 @@ public class AbstractGibbsSamplerTestFixture extends DataReader {
             "recreation?", "10-", "15-horsepower", "100-horsepower", "inboard", "sea-doo", "(single-engine", "cessna",
             "172", "(motor", "home)", "(hard", "top)", "all-terrain", "cruisers", "dealers", "rvs", "pulling",
             "displayed", "activities?", "file", "kayaking", "cross-country", "hiking", "persons", "(clothes",
-            "laundromat", "boosts", "jets"});
-    protected static final List<String> TOPIC2_TOPWORDS = Arrays.asList(new String[]{"building", "materials",
+            "laundromat", "boosts", "jets");
+    protected static final List<String> TOPIC2_TOPWORDS = Arrays.asList("building", "materials",
             "sustainable", "material", "years", "roof", "available", "built", "new", "build", "need", "wood",
             "industry", "-", "lime", "development", "concrete", "including", "used", "needs", "cob", "locally",
             "recycled", "form", "product", "roofing", "cement", "expensive", "buildings", "market", "necessary",
@@ -195,8 +195,8 @@ public class AbstractGibbsSamplerTestFixture extends DataReader {
             "render", "coarse", "granite", "footings", "london-based", "sulphate", "consequences", "announcement",
             "tested", "eagerly", "unplugged", "newsvinenewsvine", "journalist", "story", "remarked", "reasonable",
             "start-up", "squared", "tried", "nasty", "hazard", "weeding", "dodgy", "cosy", "recycles", "terribly",
-            "sticks", "whizzing", "friendliness", "bitter", "era", "rv", "tests"});
-    protected static final List<String> TOPIC3_TOPWORDS = Arrays.asList(new String[]{"carbon", "greenhouse",
+            "sticks", "whizzing", "friendliness", "bitter", "era", "rv", "tests");
+    protected static final List<String> TOPIC3_TOPWORDS = Arrays.asList("carbon", "greenhouse",
             "emissions", "reduce", "climate", "atmosphere", "dioxide", "change", "effect", "fuels", "fossil", "gases",
             "global", "warming", "activities", "world", "students", "human", "power", "increase", "school", "process",
             "burning", "earth", "ways", "way", "methane", "footprint", "light", "generate", "industrial", "ozone",
@@ -268,8 +268,8 @@ public class AbstractGibbsSamplerTestFixture extends DataReader {
             "mites", "eczema", "palpitations", "recognise", "pipeline", "tar", "proposal", "funding", "happened",
             "leds", "manipulate", "tourists", "google", "containers)", "standard-sized", "puts", "breaks",
             "landfilled", "change)", "tacking", "compromised", "manage", "earned", "insist", "guilty", "stating",
-            "confident", "respected", "party", "implemented", "odometer", "pools", "cools"});
-    protected static final List<String> TOPIC4_TOPWORDS = Arrays.asList(new String[]{"use", "used", "natural",
+            "confident", "respected", "party", "implemented", "odometer", "pools", "cools");
+    protected static final List<String> TOPIC4_TOPWORDS = Arrays.asList("use", "used", "natural",
             "using", "reducing", "low", "environment", "oil", "make", "help", "include", "stone", "paints", "small",
             "impact", "look", "live", "create", "possible", "large", "people", "modern", "known", "source", "come",
             "brick", "paint", "companies", "potential", "conventional", "main", "making", "hand", "diesel", "process",
@@ -332,8 +332,8 @@ public class AbstractGibbsSamplerTestFixture extends DataReader {
             "trial", "operations", "initiated", "watery", "vechicle", "disseminate", "internationally", "rural",
             "deprived", "dreams", "realised", "stumble", "text", "photos", "developer", "pointed",
             "electricity-generating", "scrub", "sky", "respect", "bygone", "bunch", "draught-proofing", "trains)",
-            "scroll", "canoeing", "finite", "washers", "dishwashing", "heat-dry"});
-    protected static final List<String> TOPIC5_TOPWORDS = Arrays.asList(new String[]{"energy", "home", "house",
+            "scroll", "canoeing", "finite", "washers", "dishwashing", "heat-dry");
+    protected static final List<String> TOPIC5_TOPWORDS = Arrays.asList("energy", "home", "house",
             "project", "epc", "property", "efficiency", "performance", "-", "housing", "renewable", "solar",
             "buildings", "cost", "information", "heating", "future", "commercial", "efficient", "guide", "simple",
             "certificate", "homes", "addition", "required", "panels", "consider", "improve", "lighting", "require",
@@ -398,8 +398,8 @@ public class AbstractGibbsSamplerTestFixture extends DataReader {
             "a++", "pvc", "cords", "routers", "environments", "operational", "employer", "byproducts", "objectives",
             "contruct", "staying", "attract", "remote", "grids", "agendas", "eco-development", "eco-build", "stunning",
             "fuchsia-pink", "under-floor", "triple", "wouldn't", "rid", "sit-ups", "stare", "ride!", "cruiser",
-            "persons)", "reheated"});
-    protected static final List<String> TOPIC6_TOPWORDS = Arrays.asList(new String[]{"just", "today", "countries",
+            "persons)", "reheated");
+    protected static final List<String> TOPIC6_TOPWORDS = Arrays.asList("just", "today", "countries",
             "costs", "protocol", "year", "light", "developed", "kyoto", "plant", "food", "technologies", "like", "cut",
             "1983", "says", "systems", "buy", "period", "life", "2", "million", "compared", "target", "trees", "-",
             "room", "zero", "achieved", "1990", "targets", "extra", "economic", "market", "european", "management",
@@ -464,8 +464,8 @@ public class AbstractGibbsSamplerTestFixture extends DataReader {
             "islands", "domestic/light", "o'connell", "she'd", "'living'", "farkfark", "minds", "pictures",
             "campaigned", "wistfully", "people's", "carbon-zero", "storage)", "gable", "(admittedly", "pink",
             "sleeping", "thieves", "tiled", "mould", "reluctant", "stray", "tells", "pronto", "disaster", "sunken",
-            "wild", "wielding", "west", "guess", "discussing", "we're", "hop", "one-tenth", "chained", "259", "460"});
-    protected static final List<String> TOPIC7_TOPWORDS = Arrays.asList(new String[]{"insulation", "air", "home",
+            "wild", "wielding", "west", "guess", "discussing", "we're", "hop", "one-tenth", "chained", "259", "460");
+    protected static final List<String> TOPIC7_TOPWORDS = Arrays.asList("insulation", "air", "home",
             "heat", "windows", "walls", "house", "wall", "new", "homes", "percent", "window", "good", "doors",
             "greenhouse", "way", "reduce", "cold", "warm", "basement", "inside", "types", "better", "space", "frame",
             "foam", "glass", "usually", "efficient", "outside", "cool", "common", "foundation", "lights", "leaks",
@@ -527,8 +527,8 @@ public class AbstractGibbsSamplerTestFixture extends DataReader {
             "flint", "shovelled", "stamped", "trod", "mm)", "fortnight", "plumb", "rose", "others)", "consistency",
             "dough", "labour-intensive", "thoroughly", "laying", "meaning", "two-storey", "trench", "days)", "u-value",
             "exceeds", "poverty-in", "googlegoogle", "photovoltaic", "centimetre", "bouncing", "radiator", "excuse",
-            "37", "35kg", "split?", "tub"});
-    protected static final List<String> TOPIC8_TOPWORDS = Arrays.asList(new String[]{"*", "green", "construction",
+            "37", "35kg", "split?", "tub");
+    protected static final List<String> TOPIC8_TOPWORDS = Arrays.asList("*", "green", "construction",
             "environmental", "pollution", "design", "roofs", "uk", "living", "important", "local", "high", "site",
             "range", "environmentally", "friendly", "resources", "soil", "equipment", "like", "eco", "c60", "levels",
             "benefits", "increasing", "plants", "o", "government", "support", "area", "including", "non-toxic",
@@ -604,8 +604,8 @@ public class AbstractGibbsSamplerTestFixture extends DataReader {
             "interviewing", "piece", "ostracised", "begun?", "new-build", "floating", "stainless", "clad", "rattling",
             "loughborough", "baths", "sparkly", "disco", "buff", "trail", "waif", "begging", "nightmare", "haven",
             "(that's", "upside)", "chill", "everyone's", "community-minded", "childhood", "hiding", "leylandii",
-            "upset", "berated", "easyjet", "tuscany", "allotment", "double-glazing", "a+", "a/a+", "aircraft)"});
-    protected static final List<String> TOPIC9_TOPWORDS = Arrays.asList(new String[]{"temperature", "house",
+            "upset", "berated", "easyjet", "tuscany", "allotment", "double-glazing", "a+", "a/a+", "aircraft)");
+    protected static final List<String> TOPIC9_TOPWORDS = Arrays.asList("temperature", "house",
             "consumption", "time", "summer", "thermostat", "days", "set", "day", "houses", "setback", "floor",
             "temperatures", "savings", "times", "surface", "winter", "different", "night", "humidity", "electrical",
             "radiation", "problems", "lower", "heating", "condensation", "furnace", "ground", "results", "means",
@@ -660,7 +660,7 @@ public class AbstractGibbsSamplerTestFixture extends DataReader {
             "chronic", "prosperous", "urgency", "codes", "drilled", "'zero", "sandison", "brownfield", "struck",
             "battery/fuel", "comforts", "non-domestic", "university's", "'as", "liveable", "unsurprisingly", "loaves",
             "taper", "plinth", "driveways", "admit", "non-cement", "pioneering", "mixxmixx", "lawrence", "worried",
-            "roof)", "places)", "couple", "returned", "person!", "answering", "sailing"});
+            "roof)", "places)", "couple", "returned", "person!", "answering", "sailing");
 
     public AbstractGibbsSamplerTestFixture() {
         super();

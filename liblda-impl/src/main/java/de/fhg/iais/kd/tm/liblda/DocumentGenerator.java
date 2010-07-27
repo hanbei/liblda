@@ -13,18 +13,18 @@ import de.fhg.iais.kd.tm.liblda.inference.InferenceEngine;
  */
 public class DocumentGenerator<T> {
 
-    private LDAImpl<T> ldaModel;
+    private LDA<T> ldaModel;
     private int minimumDocumentLength;
     private int maximumDocumentLength;
 
-    public DocumentGenerator(LDAImpl lda) {
+    public DocumentGenerator(LDA lda) {
         ldaModel = lda;
         maximumDocumentLength = 300;
         minimumDocumentLength = 50;
     }
 
     public List<T> generateDocument() {
-        ArrayList<T> generatedDocument = new ArrayList<T>();
+        List<T> generatedDocument = new ArrayList<T>();
 
         InferenceEngine inferenceEngine = ldaModel.getInferenceEngine();
         LDAParameter parameter = inferenceEngine.getLDAParameter();
@@ -44,13 +44,13 @@ public class DocumentGenerator<T> {
         return generatedDocument;
     }
 
-    public List<T> generateDocument(int[] topics, double probabilites[], int docLength) {
+    public List<T> generateDocument(int[] topics, double[] probabilities, int docLength) {
         RandomEngine randomEngine = ldaModel.getInferenceEngine().getRandomEngine();
-        ArrayList<T> generatedDocument = new ArrayList<T>();
+        List<T> generatedDocument = new ArrayList<T>();
 
         double[][] topicTermDist = getTopicTermDistributions();
 
-        Integer[] wordIndices = fillTopicDistributionVector(topics, probabilites, docLength);
+        Integer[] wordIndices = fillTopicDistributionVector(topics, probabilities, docLength);
 
         Collections.shuffle(Arrays.asList(wordIndices), randomEngine);
 
@@ -62,13 +62,13 @@ public class DocumentGenerator<T> {
         return generatedDocument;
     }
 
-    private Integer[] fillTopicDistributionVector(int[] topics, double[] probabilites, int docLength) {
+    private Integer[] fillTopicDistributionVector(int[] topics, double[] probabilities, int docLength) {
         int currentIndex = 0;
         int fractionSum = 0;
-        Integer wordIndices[] = new Integer[docLength];
+        Integer[] wordIndices = new Integer[docLength];
 
         for (int i = 0; i < topics.length; i++) {
-            int fraction = (int) Math.round(docLength * probabilites[i]);
+            int fraction = (int) Math.round(docLength * probabilities[i]);
             fractionSum += fraction;
             int j = currentIndex;
             for (; (j < currentIndex + fraction) && (j < wordIndices.length); j++) {
@@ -88,8 +88,8 @@ public class DocumentGenerator<T> {
         return wordIndices;
     }
 
-    public List<T> generateDocument(int[] topics, double probabilites[]) {
-        return generateDocument(topics, probabilites, drawDocumentLength());
+    public List<T> generateDocument(int[] topics, double[] probabilities) {
+        return generateDocument(topics, probabilities, drawDocumentLength());
     }
 
     private double[][] getTopicTermDistributions() {

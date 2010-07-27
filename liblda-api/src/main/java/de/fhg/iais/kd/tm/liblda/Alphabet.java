@@ -75,7 +75,7 @@ public class Alphabet<V> implements Serializable {
     }
 
     /**
-     * Tests wether the alphabet contains the feature.
+     * Tests whether the alphabet contains the feature.
      *
      * @param feature The value to test for existence in the alphabet.
      * @return True if the feature is contained in the alphabet, false otherwise.
@@ -85,7 +85,7 @@ public class Alphabet<V> implements Serializable {
     }
 
     /**
-     * Tests wether the alphabet contains the feature mapped to <code>number</code>.
+     * Tests whether the alphabet contains the feature mapped to <code>number</code>.
      *
      * @param number The value to test for existence in the alphabet.
      * @return True if the number is mapped to a feature, false otherwise.

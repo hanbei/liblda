@@ -18,8 +18,7 @@ public class TestColtPerformance {
 	private static final int DIM1 = 3000;
 	private static final int DIM2 = 2000;
 
-	private static Random rand;
-	private static int[] xInsert;
+    private static int[] xInsert;
 	private static int[] yInsert;
 	private static double[] val;
 
@@ -28,7 +27,7 @@ public class TestColtPerformance {
 		xInsert = new int[NUMBEROFINSERTS];
 		yInsert = new int[NUMBEROFINSERTS];
 		val = new double[NUMBEROFINSERTS];
-		rand = new Random();
+        Random rand = new Random();
 		for (int i = 0; i < NUMBEROFINSERTS; i++) {
 			xInsert[i] = rand.nextInt(DIM2);
 			yInsert[i] = rand.nextInt(DIM1);

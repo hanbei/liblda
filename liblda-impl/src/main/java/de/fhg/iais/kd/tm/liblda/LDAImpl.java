@@ -26,7 +26,7 @@ public class LDAImpl<T> implements LDA<T> {
     /**
      * Create new LDAImpl Object that allows for inferencing topics from a collection of features.
      *
-     * @param numTopics
+     * @param numTopics The number of topics.
      */
     public LDAImpl(int numTopics) {
         inferenceEngine = new FastGibbsSampler();
@@ -136,8 +136,8 @@ public class LDAImpl<T> implements LDA<T> {
         return convertMapToTopicList(docTopicScores);
     }
 
-    private ArrayList<Topic> convertMapToTopicList(double[] docTopicScores) {
-        ArrayList<Topic> docTopicScoresList = new ArrayList<Topic>();
+    private List<Topic> convertMapToTopicList(double[] docTopicScores) {
+        List<Topic> docTopicScoresList = new ArrayList<Topic>();
         for (int topicId = 0; topicId < docTopicScores.length; topicId++) {
             Topic topic = new Topic();
             topic.setId(topicId);
@@ -148,9 +148,9 @@ public class LDAImpl<T> implements LDA<T> {
     }
 
     @Override
-    public HashMap<Integer, List<T>> getTopFeatures() {
+    public Map<Integer, List<T>> getTopFeatures() {
         int numberOfTopics = inferenceEngine.getLDAParameter().getNumberOfTopics();
-        HashMap<Integer, List<T>> topFeatures = new HashMap<Integer, List<T>>(numberOfTopics);
+        Map<Integer, List<T>> topFeatures = new HashMap<Integer, List<T>>(numberOfTopics);
 
         for (int topicId = 0; topicId < numberOfTopics; topicId++) {
             List<T> topFeaturesForTopic = getTopFeaturesForTopic(topicId);

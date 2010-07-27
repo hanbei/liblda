@@ -258,18 +258,22 @@ public abstract class AbstractGibbsSampler implements InferenceEngine {
         return featureDistribution;
     }
 
+    @Override
     public Matrix getTopicTypeCount() {
         return topicTypeCount;
     }
 
+    @Override
     public void setTopicTypeCount(Matrix topicTypeCount) {
         this.topicTypeCount = topicTypeCount;
     }
 
+    @Override
     public Matrix getTopicDocumentCount() {
         return topicDocumentCount;
     }
 
+    @Override
     public void setTopicDocumentCount(Matrix topicDocumentCount) {
         this.topicDocumentCount = topicDocumentCount;
     }

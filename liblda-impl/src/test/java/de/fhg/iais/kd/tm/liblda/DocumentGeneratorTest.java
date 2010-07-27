@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 
 public class DocumentGeneratorTest {
 
-    private LDAImpl model;
+    private LDA model;
     private DocumentGenerator<String> docGenerator;
     // private int[] expectedTopics;
     // private int[] expectedTypes;
@@ -42,7 +42,7 @@ public class DocumentGeneratorTest {
     public void testDocumentGeneration() {
         List<String> actualDocument = docGenerator.generateDocument();
         assertEquals(10, actualDocument.size());
-        assertArrayEquals(document, actualDocument.toArray(new String[0]));
+        assertArrayEquals(document, actualDocument.toArray(new String[actualDocument.size()]));
     }
 
     @Test
@@ -71,7 +71,7 @@ public class DocumentGeneratorTest {
     private void readModel() {
         InputStream in = DocumentGeneratorTest.class.getResourceAsStream("/topic.lda");
         LDAReader reader = new LDAReader();
-        model = (LDAImpl) reader.readLDAModel(in);
+        model = reader.readLDAModel(in);
     }
 
 }

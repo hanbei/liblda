@@ -6,15 +6,12 @@ import org.junit.Before;
 import java.io.*;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.StringTokenizer;
-import java.util.TreeSet;
+import java.util.*;
 
 public class DataReader {
 
-	protected ArrayList<ArrayList<String>> corpus;
-	protected TreeSet<String> stopWords = new TreeSet<String>();
+	protected List<ArrayList<String>> corpus;
+	protected Set<String> stopWords = new TreeSet<String>();
 
 	public DataReader() {
 		super();
@@ -38,13 +35,13 @@ public class DataReader {
 				allDPAFiles.add(file);
 			}
 		}
-		return allDPAFiles.toArray(new File[0]);
+		return allDPAFiles.toArray(new File[allDPAFiles.size()]);
 	}
 
 	protected ArrayList<String> readFile(File txtFile) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(txtFile));
 		String text = "";
-		String line = "";
+		String line;
 		while ((line = reader.readLine()) != null) {
 			if (line.matches("\\s")) {
 				continue;
@@ -91,10 +88,10 @@ public class DataReader {
 	}
 
 	protected void readEnglishStopwords() throws IOException {
-		InputStream stopWordFile = TestLDASparseGibbsampler.class.getResourceAsStream("/english_stopWords.txt");
+		InputStream stopWordFile = DataReader.class.getResourceAsStream("/english_stopWords.txt");
 		stopWords.clear();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(stopWordFile));
-		String line = "";
+		String line;
 		while ((line = reader.readLine()) != null) {
 			stopWords.add(line.trim());
 		}

@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import de.fhg.iais.kd.tm.liblda.LDAImpl;
 import de.fhg.iais.kd.tm.liblda.io.LDAWriter;
@@ -26,7 +27,7 @@ public class TestLDASparseGibbsampler extends AbstractGibbsSamplerTestFixture {
         lda.train();
         logRunTime(startTime);
 
-        HashMap<Integer, List<String>> topFeatures = lda.getTopFeatures();
+        Map<Integer, List<String>> topFeatures = lda.getTopFeatures();
         LDAWriter writer = new LDAWriter();
         FileOutputStream out = new FileOutputStream("model.lda");
         writer.writeLDAModel(lda, out);

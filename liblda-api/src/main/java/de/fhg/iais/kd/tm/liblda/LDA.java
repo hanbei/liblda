@@ -5,6 +5,7 @@ import de.fhg.iais.kd.tm.liblda.inference.InferenceEngine;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A interface that provides common methods for performing LDA on a set of data. The type parameter <T> denotes the
@@ -37,7 +38,7 @@ public interface LDA<T> extends Serializable {
 
     List<Topic> inference(List<? extends T> data);
 
-    HashMap<Integer, List<T>> getTopFeatures();
+    Map<Integer, List<T>> getTopFeatures();
 
     List<T> getTopFeaturesForTopic(int topic);
 
