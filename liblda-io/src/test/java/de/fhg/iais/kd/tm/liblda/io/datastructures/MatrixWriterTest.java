@@ -2,6 +2,7 @@ package de.fhg.iais.kd.tm.liblda.io.datastructures;
 
 import de.fhg.iais.kd.tm.liblda.datastructures.DenseMatrix;
 import de.fhg.iais.kd.tm.liblda.datastructures.Matrix;
+import de.fhg.iais.kd.tm.liblda.io.TestConstants;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,18 +14,14 @@ import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.assertArrayEquals;
 
 /**
- * Created by IntelliJ IDEA.
- * User: hanbei
- * Date: 24.07.2010
- * Time: 17:53:45
- * To change this template use File | Settings | File Templates.
+ * @author hanbei
  */
 public class MatrixWriterTest {
 
     private Matrix matrix;
     private MatrixWriter matrixWriter;
     private String expectedMatrixAsString;
-    private static final String LINE_SEPARATOR = System.getProperty("line.separator");
+
 
     @Before
     public void setup() {
@@ -42,7 +39,7 @@ public class MatrixWriterTest {
         matrix.set(2, 1, 2.1);
         matrix.set(2, 2, 2.2);
 
-        expectedMatrixAsString = "de.fhg.iais.kd.tm.liblda.datastructures.DenseMatrix 3 3" + LINE_SEPARATOR + " 0.0 0.1 0.2" + LINE_SEPARATOR + " 1.0 1.1 1.2" + LINE_SEPARATOR + " 2.0 2.1 2.2" + LINE_SEPARATOR;
+        expectedMatrixAsString = "de.fhg.iais.kd.tm.liblda.datastructures.DenseMatrix 3 3" + TestConstants.LINE_SEPARATOR + " 0.0 0.1 0.2" + TestConstants.LINE_SEPARATOR + " 1.0 1.1 1.2" + TestConstants.LINE_SEPARATOR + " 2.0 2.1 2.2" + TestConstants.LINE_SEPARATOR;
     }
 
     @Test

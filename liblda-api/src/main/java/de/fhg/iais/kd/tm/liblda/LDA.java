@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA. User: fschulz Date: Jul 23, 2010 Time: 11:54:14 AM To change this template use File |
- * Settings | File Templates.
+ * A interface that provides common methods for performing LDA on a set of data. The type parameter <T> denotes the
+ * type of items the LDA should be performed on. The concrete class <T> must implement hashCode.
  */
 public interface LDA<T> extends Serializable {
     double[] getAlpha();
