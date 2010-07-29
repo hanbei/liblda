@@ -7,8 +7,8 @@ import org.junit.Test;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
@@ -25,7 +25,7 @@ public class TestLDAFastGibbsampler extends AbstractGibbsSamplerTestFixture {
         lda.train();
         logRunTime(startTime);
 
-        HashMap<Integer, List<String>> topFeatures = lda.getTopFeatures();
+        Map<Integer, List<String>> topFeatures = lda.getTopFeatures();
         BufferedWriter writer = new BufferedWriter(new FileWriter("topics.txt"));
         for (Integer topicId : topFeatures.keySet()) {
             List<String> topWords = topFeatures.get(topicId);

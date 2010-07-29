@@ -41,8 +41,8 @@ public class Alphabet<V> implements Serializable {
     }
 
     /**
-     * Lookup a feature. Returns the mapped number of the feature if it is contained in the alphabet. Otherwise it returns
-     * -1.
+     * Lookup a feature. Returns the mapped number of the feature if it is contained in the alphabet. Otherwise it
+     * returns -1.
      *
      * @param feature The feature to look up.
      * @return The mapped number of the feature if contained in the alphabet or -1 instead.
@@ -95,9 +95,15 @@ public class Alphabet<V> implements Serializable {
             return false;
         }
         return entries.get(number) != null;
-	}
+    }
 
-	public Collection<V> getFeatures() {
-		return entries;
-	}
+    public Collection<V> getFeatures() {
+        return entries;
+    }
+
+    public void set(V feature, int index) {
+        entries.set(index, feature);
+        mapping.put(feature, index);
+
+    }
 }

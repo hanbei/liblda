@@ -1,11 +1,12 @@
 package de.fhg.iais.kd.tm.liblda.inference.gibbs;
 
-import java.util.List;
-
-import de.fhg.iais.kd.tm.liblda.datastructures.DocumentData;
 import de.fhg.iais.kd.tm.liblda.LDAParameter;
 import de.fhg.iais.kd.tm.liblda.RandomEngine;
+import de.fhg.iais.kd.tm.liblda.datastructures.DocumentData;
+import de.fhg.iais.kd.tm.liblda.datastructures.Matrix;
 import de.fhg.iais.kd.tm.liblda.inference.InferenceEngine;
+
+import java.util.List;
 
 public class ThreadedGibbsSampler implements InferenceEngine {
 
@@ -37,7 +38,27 @@ public class ThreadedGibbsSampler implements InferenceEngine {
 		return null;
 	}
 
-	@Override
+    @Override
+    public Matrix getTopicTypeCount() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void setTopicTypeCount(Matrix topicTypeCount) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public Matrix getTopicDocumentCount() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void setTopicDocumentCount(Matrix topicDocumentCount) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
 	public LDAParameter getLDAParameter() {
 		return parameter;
 	}
