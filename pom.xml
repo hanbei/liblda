@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>de.fhg.iais.kd.tm</groupId>
-	<artifactId>liblda</artifactId>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.assembla.liblda</groupId>
+    <artifactId>liblda</artifactId>
     <packaging>pom</packaging>
     <version>0.0.2-SNAPSHOT</version>
     <modules>
@@ -12,12 +12,12 @@
     </modules>
     <name>LDA</name>
 
-	<properties>
+    <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <source.level>1.6</source.level>
     </properties>
 
-	<ciManagement>
+    <ciManagement>
         <system>Hudson</system>
         <url>http://kd-build:8080/hudson/view/LibLDA/job/libLDA/</url>
     </ciManagement>
@@ -31,7 +31,7 @@
             <timezone>GMT+1</timezone>
         </developer>
     </developers>
-   <scm>
+    <scm>
         <connection>
             scm:svn:http://subversion.assembla.com/svn/liblda/trunk
         </connection>
@@ -39,9 +39,9 @@
             scm:svn:http://subversion.assembla.com/svn/liblda/trunk
         </developerConnection>
         <url>http://subversion.assembla.com/svn/liblda/trunk</url>
-    </scm>   
+    </scm>
 
-	<organization>
+    <organization>
         <name>Fraunhofer IAIS (Textmining)</name>
         <url>http://www.iais.fraunhofer.de/4862.html</url>
     </organization>
@@ -82,55 +82,55 @@
         </plugins>
     </build>
 
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.7</version>
-			<type>jar</type>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.gnu</groupId>
-			<artifactId>trove</artifactId>
-			<version>2.0.2</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>colt</groupId>
-			<artifactId>colt</artifactId>
-			<version>1.2.0</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-math</artifactId>
-			<version>2.0</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-	</dependencies>
-	<distributionManagement>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>Internal Snapshots</name>
-			<url>
-				http://theseuskd.iais.fraunhofer.de:8080/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-		<repository>
-			<id>releases</id>
-			<name>Internal Releases</name>
-			<url>
-				http://theseuskd.iais.fraunhofer.de:8080/nexus/content/repositories/releases/</url>
-		</repository>
-		<site>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.7</version>
+            <type>jar</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.gnu</groupId>
+            <artifactId>trove</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>colt</groupId>
+            <artifactId>colt</artifactId>
+            <version>1.2.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math</artifactId>
+            <version>2.0</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Internal Snapshots</name>
+            <url>
+                http://theseuskd.iais.fraunhofer.de:8080/nexus/content/repositories/snapshots/
+            </url>
+        </snapshotRepository>
+        <repository>
+            <id>releases</id>
+            <name>Internal Releases</name>
+            <url>
+                http://theseuskd.iais.fraunhofer.de:8080/nexus/content/repositories/releases/
+            </url>
+        </repository>
+        <site>
             <id>stagingSite</id>
             <name>LibCRF - Site</name>
             <url>scp://kd-build.iais.fraunhofer.de/home/fschulz/site/liblda/</url>
         </site>
-	</distributionManagement>
-	<reporting>
+    </distributionManagement>
+    <reporting>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

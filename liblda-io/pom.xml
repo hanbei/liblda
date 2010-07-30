@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>liblda</artifactId>
-        <groupId>de.fhg.iais.kd.tm</groupId>
+        <groupId>com.assembla.liblda</groupId>
         <version>0.0.2-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -14,12 +14,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>de.fhg.iais.kd.tm</groupId>
+            <groupId>com.assembla.liblda</groupId>
             <artifactId>liblda-api</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>de.fhg.iais.kd.tm</groupId>
+            <groupId>com.assembla.liblda</groupId>
             <artifactId>liblda-impl</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
