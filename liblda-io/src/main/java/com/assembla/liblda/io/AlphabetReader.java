@@ -22,12 +22,32 @@ import com.assembla.liblda.Alphabet;
 import java.io.*;
 
 /**
+ * Reads an alphabet from a InputStream or a Reader. The items present in the alphabet are read with a
+ * separate reader. This reader must not use a BufferedReader to read the item as these do not correctly set the
+ * stream at the right position. Please write a unit test for AlphabetReader with your own item reader class. <br/>
+ *
+ * The AlphabetReader assumes the following format.
+ * <pre>
+ * Item
+ * Index
+ * Item2
+ * Index2
+ * ...
+ * </pre>
+ * Each item is written to the output stream separated by a newline from the index.
+ * @see IOHelper 
+ *
  * @author Florian Schulz
  */
 public class AlphabetReader<T> implements IReader<Alphabet<T>> {
 
     private IReader<T> itemReader;
 
+    /**
+     * Create a new AlphabetReader that reads items with the supplied IReader.
+     *
+     * @param itemReader
+     */
     public AlphabetReader(IReader<T> itemReader) {
         this.itemReader = itemReader;
     }
