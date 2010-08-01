@@ -44,8 +44,8 @@ public class AlphabetReader<T> implements IReader<Alphabet<T>> {
         BufferedReader bufferedReader = new BufferedReader(reader);
         String line = "";
         while (line != null) {
-            T feature = itemReader.read(bufferedReader);
-            line = bufferedReader.readLine();
+            T feature = itemReader.read(reader);
+            line = IOHelper.readLine(reader);
             if (line != null) {
                 int index = Integer.parseInt(line.trim());
                 alphabet.set(feature, index);
@@ -53,4 +53,6 @@ public class AlphabetReader<T> implements IReader<Alphabet<T>> {
         }
         return alphabet;
     }
+
+
 }

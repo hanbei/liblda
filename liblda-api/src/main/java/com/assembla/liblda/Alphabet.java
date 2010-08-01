@@ -120,8 +120,31 @@ public class Alphabet<V> implements Serializable {
     }
 
     public void set(V feature, int index) {
-        entries.set(index, feature);
+        if (index == entries.size()) {
+            entries.add(feature);
+        } else {
+            entries.set(index, feature);
+        }
         mapping.put(feature, index);
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Alphabet)) return false;
+
+        Alphabet alphabet = (Alphabet) o;
+
+        if (!entries.equals(alphabet.entries)) return false;
+        if (!mapping.equals(alphabet.mapping)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = mapping.hashCode();
+        result = 31 * result + entries.hashCode();
+        return result;
     }
 }

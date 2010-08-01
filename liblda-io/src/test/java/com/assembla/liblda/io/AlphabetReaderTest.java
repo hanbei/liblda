@@ -62,6 +62,5 @@ public class AlphabetReaderTest {
     public void testReadWithReader() throws Exception {
         StringReader reader = new StringReader(expectedRead);
         assertEquals(alphabet,alphabetReader.read(reader));
-
     }
 }

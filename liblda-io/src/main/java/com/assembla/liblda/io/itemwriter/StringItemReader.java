@@ -17,6 +17,7 @@
  */
 package com.assembla.liblda.io.itemwriter;
 
+import com.assembla.liblda.io.IOHelper;
 import com.assembla.liblda.io.IReader;
 
 import java.io.*;
@@ -25,15 +26,15 @@ import java.io.*;
  * @author Florian Schulz
  */
 public class StringItemReader implements IReader<String> {
+    public static final String LINE_SEPARATOR = System.getProperty("line.separator");
+
     @Override
     public String read(InputStream in) throws IOException {
-         return read(new InputStreamReader(in));
+        return read(new InputStreamReader(in));
     }
 
     @Override
     public String read(Reader reader) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(reader);
-        String string = bufferedReader.readLine();
-        return string;
+        return IOHelper.readLine(reader);
     }
 }
