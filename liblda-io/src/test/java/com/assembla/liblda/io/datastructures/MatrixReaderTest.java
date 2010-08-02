@@ -56,11 +56,11 @@ public class MatrixReaderTest {
         expectedMatrix.set(2, 1, 2.1);
         expectedMatrix.set(2, 2, 2.2);
 
-        correctInputString = "DenseMatrix 3 3" + LINE_SEPARATOR + " 0.0 0.1 0.2" + LINE_SEPARATOR + " 1.0 1.1 1.2" + LINE_SEPARATOR + " 2.0 2.1 2.2" + LINE_SEPARATOR;
-        tooFewColumnsInputString = "DenseMatrix 3 3" + LINE_SEPARATOR + " 0.0 0.1" + LINE_SEPARATOR + " 1.0 1.1 1.2" + LINE_SEPARATOR + " 2.0 2.1 2.2" + LINE_SEPARATOR;
-        tooManyColumnsInputString = "DenseMatrix 3 4" + LINE_SEPARATOR + " 0.0 0.1 0.2" + LINE_SEPARATOR + " 1.0 1.1 1.2" + LINE_SEPARATOR + " 2.0 2.1 2.2" + LINE_SEPARATOR;
-        tooFewRowsInputString = "DenseMatrix 3 3" + LINE_SEPARATOR + " 0.0 0.1 0.2" + LINE_SEPARATOR + " 1.0 1.1 1.2" + LINE_SEPARATOR;
-        tooManyRowsInputString = "DenseMatrix 4 3" + LINE_SEPARATOR + " 0.0 0.1 0.2" + LINE_SEPARATOR + " 1.0 1.1 1.2" + LINE_SEPARATOR + " 2.0 2.1 2.2" + LINE_SEPARATOR;
+        correctInputString = "com.assembla.liblda.datastructures.DenseMatrix 3 3" + LINE_SEPARATOR + " 0.0 0.1 0.2" + LINE_SEPARATOR + " 1.0 1.1 1.2" + LINE_SEPARATOR + " 2.0 2.1 2.2" + LINE_SEPARATOR;
+        tooFewColumnsInputString = "com.assembla.liblda.datastructures.DenseMatrix 3 3" + LINE_SEPARATOR + " 0.0 0.1" + LINE_SEPARATOR + " 1.0 1.1 1.2" + LINE_SEPARATOR + " 2.0 2.1 2.2" + LINE_SEPARATOR;
+        tooManyColumnsInputString = "com.assembla.liblda.datastructures.DenseMatrix 3 4" + LINE_SEPARATOR + " 0.0 0.1 0.2" + LINE_SEPARATOR + " 1.0 1.1 1.2" + LINE_SEPARATOR + " 2.0 2.1 2.2" + LINE_SEPARATOR;
+        tooFewRowsInputString = "com.assembla.liblda.datastructures.DenseMatrix 3 3" + LINE_SEPARATOR + " 0.0 0.1 0.2" + LINE_SEPARATOR + " 1.0 1.1 1.2" + LINE_SEPARATOR;
+        tooManyRowsInputString = "com.assembla.liblda.datastructures.DenseMatrix 4 3" + LINE_SEPARATOR + " 0.0 0.1 0.2" + LINE_SEPARATOR + " 1.0 1.1 1.2" + LINE_SEPARATOR + " 2.0 2.1 2.2" + LINE_SEPARATOR;
 
         matrixReader = new MatrixReader();
     }

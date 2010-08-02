@@ -54,14 +54,13 @@ public class AlphabetReader<T> implements IReader<Alphabet<T>> {
 
     @Override
     public Alphabet<T> read(InputStream in) throws IOException {
-        return read(new InputStreamReader(in));
+        return read(new BufferedReader(new InputStreamReader(in)));
     }
 
     @Override
     public Alphabet<T> read(Reader reader) throws IOException {
         Alphabet<T> alphabet = new Alphabet<T>();
 
-        BufferedReader bufferedReader = new BufferedReader(reader);
         String line = "";
         while (line != null) {
             T feature = itemReader.read(reader);

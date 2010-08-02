@@ -20,6 +20,7 @@ package com.assembla.liblda;
 import com.assembla.liblda.inference.InferenceEngine;
 import com.assembla.liblda.io.LDAReader;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.InputStream;
@@ -55,6 +56,7 @@ public class DocumentGeneratorTest {
         inferenceEngine.setRandomEngine(new RandomEngine(new Random(0)));
     }
 
+    @Ignore
     @Test
     public void testDocumentGeneration() {
         List<String> actualDocument = docGenerator.generateDocument();
@@ -62,6 +64,7 @@ public class DocumentGeneratorTest {
         assertArrayEquals(document, actualDocument.toArray(new String[actualDocument.size()]));
     }
 
+    @Ignore
     @Test
     public void testDocumentGenerationWithPredefinedTopics() {
         List<String> actualDocument = docGenerator.generateDocument(new int[]{7, 2, 3}, new double[]{1.0 / 3.0,

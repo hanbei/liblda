@@ -130,13 +130,21 @@ public class Alphabet<V> implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Alphabet)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Alphabet)) {
+            return false;
+        }
 
         Alphabet alphabet = (Alphabet) o;
 
-        if (!entries.equals(alphabet.entries)) return false;
-        if (!mapping.equals(alphabet.mapping)) return false;
+        if (!entries.equals(alphabet.entries)) {
+            return false;
+        }
+        if (!mapping.equals(alphabet.mapping)) {
+            return false;
+        }
 
         return true;
     }

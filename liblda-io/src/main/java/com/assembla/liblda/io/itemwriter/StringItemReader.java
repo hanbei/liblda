@@ -30,7 +30,7 @@ public class StringItemReader implements IReader<String> {
 
     @Override
     public String read(InputStream in) throws IOException {
-        return read(new InputStreamReader(in));
+        return read(new BufferedReader(new InputStreamReader(in)));
     }
 
     @Override

@@ -56,7 +56,7 @@ public class MatrixWriterTest {
         matrix.set(2, 1, 2.1);
         matrix.set(2, 2, 2.2);
 
-        expectedMatrixAsString = "DenseMatrix 3 3" + TestConstants.LINE_SEPARATOR + " 0.0 0.1 0.2" + TestConstants.LINE_SEPARATOR + " 1.0 1.1 1.2" + TestConstants.LINE_SEPARATOR + " 2.0 2.1 2.2" + TestConstants.LINE_SEPARATOR;
+        expectedMatrixAsString = "com.assembla.liblda.datastructures.DenseMatrix 3 3" + TestConstants.LINE_SEPARATOR + " 0.0 0.1 0.2" + TestConstants.LINE_SEPARATOR + " 1.0 1.1 1.2" + TestConstants.LINE_SEPARATOR + " 2.0 2.1 2.2" + TestConstants.LINE_SEPARATOR;
     }
 
     @Test

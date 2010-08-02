@@ -31,7 +31,7 @@ public class MatrixReader implements IReader<Matrix> {
 
     @Override
     public Matrix read(InputStream in) throws IOException {
-        return read(new InputStreamReader(in));
+        return read(new BufferedReader(new InputStreamReader(in)));
     }
 
     @Override

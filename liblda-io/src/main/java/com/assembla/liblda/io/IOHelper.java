@@ -20,6 +20,7 @@
 package com.assembla.liblda.io;
 
 import java.io.IOException;
+import java.io.PushbackInputStream;
 import java.io.Reader;/*
  *
  *  @author Florian Schulz
@@ -50,14 +51,43 @@ public class IOHelper {
                     if (!reader.markSupported()) {
                         reader.skip(line.length());
                     }
+                    break;
                 }
             }
         }
-        if(line.length() == 0) {
+        if (line.length() == 0) {
             return null;
         }
         return line.toString();
     }
+
+    public static String readLine(PushbackInputStream inputStream) throws IOException {
+        StringBuffer line = new StringBuffer();
+        int character = -2;
+        while ((character = inputStream.read()) != -1) {
+            if (!isLineBreak(character)) {
+                line.append((char) character);
+            } else {
+                if (inputStream.markSupported()) {
+                    inputStream.mark(10);
+                }
+                if (isLineBreak(inputStream.read())) {
+                    break;
+                } else {
+                    inputStream.reset();
+                    if (!inputStream.markSupported()) {
+                        inputStream.skip(line.length());
+                    }
+                    break;
+                }
+            }
+        }
+        if (line.length() == 0) {
+            return null;
+        }
+        return line.toString();
+    }
+
 
     public static boolean isLineBreak(int character) {
         char character2 = (char) character;
