@@ -19,9 +19,7 @@ package com.assembla.liblda.datastructures;
 
 import gnu.trove.TIntDoubleHashMap;
 
-/**
- * @author Florian Schulz
- */
+/** @author Florian Schulz */
 public class SparseVector implements Vector {
 
     private TIntDoubleHashMap vector;
@@ -29,14 +27,19 @@ public class SparseVector implements Vector {
 
     public SparseVector(int size) {
         this.size = size;
+        vector = new TIntDoubleHashMap(size);
     }
 
     @Override
     public void set(int index, double value) {
-        if(index >= size) throw new ArrayIndexOutOfBoundsException(index);
-        if(index < 0) throw new ArrayIndexOutOfBoundsException(index);
+        if (index >= size) {
+            throw new ArrayIndexOutOfBoundsException(index);
+        }
+        if (index < 0) {
+            throw new ArrayIndexOutOfBoundsException(index);
+        }
 
-        vector.put(index,value);
+        vector.put(index, value);
     }
 
     @Override
@@ -46,12 +49,12 @@ public class SparseVector implements Vector {
 
     @Override
     public void increment(int index) {
-        vector.adjustValue(index,1);
+        vector.adjustOrPutValue(index, 1, 1);
     }
 
     @Override
     public void decrement(int index) {
-        vector.adjustValue(index,-1);
+        vector.adjustOrPutValue(index, -1, -1);
     }
 
     @Override
