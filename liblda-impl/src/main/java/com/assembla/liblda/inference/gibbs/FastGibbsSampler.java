@@ -18,7 +18,7 @@
 package com.assembla.liblda.inference.gibbs;
 
 import com.assembla.liblda.datastructures.DenseMatrix;
-import com.assembla.liblda.inference.gibbs.AbstractGibbsSampler;
+import com.assembla.liblda.datastructures.DenseVector;
 
 public class FastGibbsSampler extends AbstractGibbsSampler {
 
@@ -31,10 +31,10 @@ public class FastGibbsSampler extends AbstractGibbsSampler {
 	@Override
 	protected void initDataStructures(int numberOfTopics) {
 		topicTypeCount = new DenseMatrix(numberOfTopics, numberOfFeatures);
-		topicTypeSum = new int[numberOfTopics];
+		topicTypeSum = new DenseVector(numberOfTopics);
 
 		topicDocumentCount = new DenseMatrix(numberOfDocuments, numberOfTopics);
-		documentTopicSum = new int[numberOfDocuments];
+		documentTopicSum = new DenseVector(numberOfDocuments);
 	}
 
 }

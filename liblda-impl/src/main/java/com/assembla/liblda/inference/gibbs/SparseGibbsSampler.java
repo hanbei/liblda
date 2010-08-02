@@ -18,7 +18,7 @@
 package com.assembla.liblda.inference.gibbs;
 
 import com.assembla.liblda.datastructures.SparseMatrix;
-import com.assembla.liblda.inference.gibbs.AbstractGibbsSampler;
+import com.assembla.liblda.datastructures.SparseVector;
 
 
 public class SparseGibbsSampler extends AbstractGibbsSampler {
@@ -32,10 +32,10 @@ public class SparseGibbsSampler extends AbstractGibbsSampler {
 	@Override
 	protected void initDataStructures(int numberOfTopics) {
 		topicTypeCount = new SparseMatrix(numberOfTopics, numberOfFeatures);
-		topicTypeSum = new int[numberOfTopics];
+		topicTypeSum = new SparseVector(numberOfTopics);
 
 		topicDocumentCount = new SparseMatrix(numberOfDocuments, numberOfTopics);
-		documentTopicSum = new int[numberOfDocuments];
+		documentTopicSum = new SparseVector(numberOfDocuments);
 	}
 
 }

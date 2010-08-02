@@ -21,6 +21,7 @@ import com.assembla.liblda.LDAParameter;
 import com.assembla.liblda.RandomEngine;
 import com.assembla.liblda.datastructures.DocumentData;
 import com.assembla.liblda.datastructures.Matrix;
+import com.assembla.liblda.datastructures.Vector;
 import com.assembla.liblda.inference.InferenceEngine;
 
 import java.util.Arrays;
@@ -42,9 +43,9 @@ public abstract class AbstractGibbsSampler implements InferenceEngine {
     private int maximumIterations;
 
     protected Matrix topicTypeCount;
-    protected int[] topicTypeSum;
+    protected Vector topicTypeSum;
     protected Matrix topicDocumentCount;
-    protected int[] documentTopicSum;
+    protected Vector documentTopicSum;
 
     transient private RandomEngine random;
 
@@ -107,7 +108,7 @@ public abstract class AbstractGibbsSampler implements InferenceEngine {
 
         for (int topic = 0; topic < parameter.getNumberOfTopics(); topic++) {
             double wordTopicProbability = (topicTypeCount.get(topic, type) + parameter.getBeta())
-                    / (topicTypeSum[topic] + parameter.getBetaSum());
+                    / (topicTypeSum.get(topic) + parameter.getBetaSum());
             double topicProbability = (localTopicDocumentCount[topic] + parameter.getAlphaForTopic(topic))
                     / (localDocumentTopicSum + parameter.getAlphaSum());
             topicWeight[topic] = wordTopicProbability * topicProbability;
@@ -197,23 +198,23 @@ public abstract class AbstractGibbsSampler implements InferenceEngine {
 
     private void incrementDocumentTopicCount(int documentIndex, int topic) {
         topicDocumentCount.increment(documentIndex, topic);
-        documentTopicSum[documentIndex] += 1;
+        documentTopicSum.increment(documentIndex);
     }
 
     private void decrementDocumentTopicCount(int documentIndex, int topic) {
         topicDocumentCount.decrement(documentIndex, topic);
-        documentTopicSum[documentIndex] -= 1;
+        documentTopicSum.decrement(documentIndex);
     }
 
     private void incrementTopicTypeCount(DocumentData documentDate, int tokenIndex, int topic) {
         int type = documentDate.getTokenAtIndex(tokenIndex);
         topicTypeCount.increment(topic, type);
-        topicTypeSum[topic] += 1;
+        topicTypeSum.increment(topic);
     }
 
     private void decrementTopicTypeCount(DocumentData documentDate, int tokenIndex, int topic) {
         topicTypeCount.decrement(topic, documentDate.getTokenAtIndex(tokenIndex));
-        topicTypeSum[topic] -= 1;
+        topicTypeSum.decrement(topic);
     }
 
     private int sampleNewTopicForTrainingStep(int documentIndex, int type) {
@@ -221,10 +222,10 @@ public abstract class AbstractGibbsSampler implements InferenceEngine {
         double topicWeightSum = 0.0;
         for (int topicIndex = 0; topicIndex < parameter.getNumberOfTopics(); topicIndex++) {
             double wordTopicProbability = (topicTypeCount.get(topicIndex, type) + parameter.getBeta())
-                    / (topicTypeSum[topicIndex] + parameter.getBetaSum());
+                    / (topicTypeSum.get(topicIndex) + parameter.getBetaSum());
             double topicProbability = (topicDocumentCount.get(documentIndex, topicIndex) + parameter
                     .getAlphaForTopic(topicIndex))
-                    / (documentTopicSum[documentIndex] + parameter.getAlphaSum());
+                    / (documentTopicSum.get(documentIndex) + parameter.getAlphaSum());
             topicWeights[topicIndex] = wordTopicProbability * topicProbability;
             topicWeightSum += topicWeights[topicIndex];
         }
@@ -270,7 +271,7 @@ public abstract class AbstractGibbsSampler implements InferenceEngine {
 
     public double[] getFeatureDistribution(int topicId) {
         double[] featureDistribution = new double[numberOfFeatures];
-        double topicTypeSumValue = topicTypeSum[topicId];
+        double topicTypeSumValue = topicTypeSum.get(topicId);
 
         for (int type = 0; type < numberOfFeatures; type++) {
             double ttCount = topicTypeCount.get(topicId, type);

@@ -17,11 +17,12 @@
  */
 package com.assembla.liblda;
 
+import com.assembla.liblda.datastructures.Matrix;
+import com.assembla.liblda.datastructures.Vector;
+import org.apache.commons.math.special.Gamma;
+
 import java.io.Serializable;
 import java.util.Arrays;
-
-import com.assembla.liblda.datastructures.Matrix;
-import org.apache.commons.math.special.Gamma;
 
 public final class LDAParameter implements Serializable {
 
@@ -95,8 +96,8 @@ public final class LDAParameter implements Serializable {
         betaSum = beta * numberOfTypes;
     }
 
-    public void learnAlphaParameter(Matrix topicDocumentCount, int[] documentTopicSum) {
-        int numberOfDocs = documentTopicSum.length;
+    public void learnAlphaParameter(Matrix topicDocumentCount, Vector documentTopicSum) {
+        int numberOfDocs = documentTopicSum.size();
 
         for (int iteration = 0; iteration < alphaIterations; iteration++) {
             for (int k = 0; k < alpha.length; k++) {
@@ -106,7 +107,7 @@ public final class LDAParameter implements Serializable {
 
                 for (int i = 0; i < numberOfDocs; i++) {
                     double count = topicDocumentCount.get(i, k);
-                    double countSum = documentTopicSum[i];
+                    double countSum = documentTopicSum.get(i);
                     sumOverDocumentsDigammaAlpha += Gamma.digamma(count + oldAlpha);
                     sumOverDocumentsDigammaAlphaSum += Gamma.digamma(countSum + alphaSum);
                 }

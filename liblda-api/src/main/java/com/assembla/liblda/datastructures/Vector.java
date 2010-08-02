@@ -17,12 +17,14 @@
  */
 package com.assembla.liblda.datastructures;
 
+import java.io.Serializable;
+
 /**
  * A interface to define a numerical vector. A vector has a fixed size specified during construction time.
  *
  * @author Florian Schulz
  */
-public interface Vector {
+public interface Vector extends Serializable {
 
     /**
      * Set a specific index to a value
