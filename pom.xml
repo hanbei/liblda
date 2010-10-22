@@ -94,7 +94,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>trove</groupId>
+            <groupId>org.gnu</groupId>
             <artifactId>trove</artifactId>
             <version>2.1.0</version>
         </dependency>
