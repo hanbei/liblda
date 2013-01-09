@@ -1,6 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.assembla.liblda</groupId>
+    <groupId>de.hanbei.liblda</groupId>
     <artifactId>liblda</artifactId>
     <packaging>pom</packaging>
     <version>0.0.3-SNAPSHOT</version>
@@ -15,43 +16,29 @@
         <source.level>1.6</source.level>
     </properties>
 
-    <ciManagement>
-        <system>Hudson</system>
-        <url>http://kd-build:8080/hudson/view/LibLDA/job/libLDA/</url>
-    </ciManagement>
-    
     <developers>
         <developer>
             <id>fschulz</id>
             <name>Florian Schulz</name>
-            <email>florian.schulz@iais.fraunhofer.de</email>
-            <organization>Fraunhofer IAIS</organization>
-            <organizationUrl>http://www.iais.fraunhofer.de/4044.html</organizationUrl>
+            <email>florian.schulz@hanbei.de</email>
             <timezone>GMT+1</timezone>
         </developer>
     </developers>
-    
+
     <scm>
         <connection>
-            scm:svn:http://subversion.assembla.com/svn/liblda/trunk
+            scm:git:https://github.com/hanbei/liblda.git
         </connection>
         <developerConnection>
-            scm:svn:http://subversion.assembla.com/svn/liblda/trunk
+            scm:git:https://github.com/hanbei/liblda.git
         </developerConnection>
-        <url>http://subversion.assembla.com/svn/liblda/trunk</url>
+        <url>https://github.com/hanbei/liblda.git</url>
     </scm>
 
-    <organization>
-        <name>Fraunhofer IAIS (Textmining)</name>
-        <url>http://www.iais.fraunhofer.de/4862.html</url>
-    </organization>
-    
     <licenses>
         <license>
-            <name>FHG License</name>
-            <url>??</url>
-            <distribution>repo</distribution>
-            <comments>A business-friendly non-OSS license</comments>
+            <name>GNU General Public License (GPL)</name>
+            <url>http://www.gnu.org/licenses/gpl.txt</url>
         </license>
     </licenses>
 
@@ -112,28 +99,6 @@
         </dependency>
     </dependencies>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>Internal Snapshots</name>
-            <url>
-                http://theseuskd.iais.fraunhofer.de:8080/nexus/content/repositories/snapshots/
-            </url>
-        </snapshotRepository>
-        <repository>
-            <id>releases</id>
-            <name>Internal Releases</name>
-            <url>
-                http://theseuskd.iais.fraunhofer.de:8080/nexus/content/repositories/releases/
-            </url>
-        </repository>
-        <site>
-            <id>stagingSite</id>
-            <name>LibCRF - Site</name>
-            <url>scp://kd-build.iais.fraunhofer.de/home/fschulz/site/liblda/</url>
-        </site>
-    </distributionManagement>
-    
     <reporting>
         <plugins>
             <plugin>
@@ -145,25 +110,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.5</version>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <configuration>
-                    <sourceEncoding>utf-8</sourceEncoding>
-                    <minimumTokens>100</minimumTokens>
-                    <targetJdk>${source.level}</targetJdk>
-                    <rulesets>
-                        <ruleset>${basedir}/../rules.xml</ruleset>
-                    </rulesets>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-            </plugin>
         </plugins>
     </reporting>
-    
+
     <profiles>
         <profile>
             <id>hudsonDeploy</id>
