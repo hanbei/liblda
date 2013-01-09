@@ -7,7 +7,6 @@
     <modules>
         <module>liblda-api</module>
         <module>liblda-impl</module>
-        <module>liblda-io</module>
     </modules>
     <name>LDA</name>
 
